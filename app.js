@@ -14,11 +14,20 @@ app.config(function($routeProvider){
         controller: 'forecastController'
     })
 });
+
+//services
+app.service('cityService', function(){
+  this.city = "New York, NY";
+});
+
 //controllers
-app.controller('homeController', ['$scope', function(){
-    
+app.controller('homeController', ['$scope', 'cityService', function($scope, cityService){
+  $scope.city = cityService.city;
+  $scope.$watch('city', function(){
+    cityService.city = $scope.city;
+  });
 }]);
 
-app.controller('forecastController', ['$scope', function(){
-    
+app.controller('forecastController', ['$scope', 'cityService', function($scope, cityService){
+  $scope.city = cityService.city;
 }]);
