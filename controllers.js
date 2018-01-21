@@ -1,8 +1,11 @@
-app.controller('homeController', ['$scope', '$resource', 'cityService', function($scope, $resource, cityService){
+app.controller('homeController', ['$scope', '$location', '$resource', 'cityService', function($scope, $location, $resource, cityService){
   $scope.city = cityService.city;
   $scope.$watch('city', function(){
     cityService.city = $scope.city;
   });
+  $scope.submit = function() {
+    $location.path("/forecast");
+  }
 }]);
 
 app.controller('forecastController', ['$scope', '$resource', '$routeParams', 'cityService', function($scope, $resource, $routeParams, cityService){
