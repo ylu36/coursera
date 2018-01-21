@@ -1,0 +1,11 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{convertToDate({dt: weatherDay.dt}) |
+    date:dateFormat}}</h3>
+  </div>
+  <div class="panel-body">
+    DayTime temperature in Celcius: {{convertToCStd({daytimeTemp: weatherDay.main.temp})}}
+    <br>
+    DayTime temperature in fahrenheit: {{convertToFStd({daytimeTemp:weatherDay.main.temp})}}
+  </div>
+</div>
